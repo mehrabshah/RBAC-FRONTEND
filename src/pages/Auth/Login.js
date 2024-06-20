@@ -1,7 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import  Input  from "../../components/shared/Input";
+import Input from "../../components/shared/Input";
 import { useNavigate } from "react-router-dom";
+import Radio from "../../components/shared/Radio";
 import { Link } from "react-router-dom";
 const inputFields = [
   { label: "Email", type: "text", name: "email", placeholder: "Email" },
@@ -11,6 +12,11 @@ const inputFields = [
     name: "password",
     placeholder: "Password",
   },
+];
+const role = [
+  { label: "Admin", value: "admin" },
+  { label: "Doctor", value: "doctor" },
+  { label: "Patient", value: "patient" },
 ];
 
 export const Login = () => {
@@ -22,10 +28,10 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-   
+
     try {
-     
-     
+
+      
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +55,12 @@ export const Login = () => {
                 error={errors[field.name]}
               />
             ))}
-
+            <Radio
+              label="Select Role"
+              options={role}
+              register={register("role", { required: "Role is required" })}
+              error={errors.role}
+            />
             <input
               type="submit"
               className="w-full bg-[#06CA8C] hover:bg-[#059476] text-[#ffffff] cursor-pointer p-2 mt-5"
@@ -69,5 +80,4 @@ export const Login = () => {
   );
 };
 
-
-export default Login
+export default Login;

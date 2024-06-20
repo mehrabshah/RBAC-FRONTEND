@@ -26,8 +26,8 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
     try {
+      
       navigate("/login");
     } catch (error) {
       console.error(error);

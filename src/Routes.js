@@ -1,8 +1,13 @@
 import React from 'react'
+import Login from './pages/Auth/Login'
+import Signup from './pages/Auth/Signup'
 
 const Routes = () => {
   return (
-    <div>Routes</div>
+    <>
+        <Login/>
+        <Signup/>
+    </>
   )
 }
 

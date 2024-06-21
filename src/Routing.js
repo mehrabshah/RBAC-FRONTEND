@@ -20,30 +20,29 @@ const Routing = () => {
         <Route
           element={
             <ProtectedRoute>
-                <AdminLayout></AdminLayout>
+              <AdminLayout></AdminLayout>
             </ProtectedRoute>
           }
         >
-            <Route path="/admin" element={<Admin/>} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
         <Route
           element={
             <ProtectedRoute>
-                <PatientLayout></PatientLayout>
+              <PatientLayout></PatientLayout>
             </ProtectedRoute>
           }
         >
-            <Route path="/patient" element={<Patient/>} />
+          <Route path="/patient" element={<Patient />} />
         </Route>
-
         <Route
           element={
             <ProtectedRoute>
-                <DoctorLayout></DoctorLayout>
+              <DoctorLayout></DoctorLayout>
             </ProtectedRoute>
           }
         >
-            <Route path="/doctor" element={<Doctor/>} />
+          <Route path="/doctor" element={<Doctor />} />
         </Route>
       </Routes>
     </BrowserRouter>

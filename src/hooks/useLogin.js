@@ -1,30 +1,28 @@
 // src/hooks/useSignup.js
 import { useState } from 'react';
 import {loginUser} from "../services/authapi"
-import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 
 const useLogin = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { setAuthInfo } = useAuth();
   const navigate = useNavigate();
 
   const login = async (data) => {
     try {
-      const response = await loginUser(data);
+      const userData = await loginUser(data);
+      localStorage.setItem('User', JSON.stringify(userData));
       setLoading(false);
-      setAuthInfo(response);
-      if(response.role=="admin")
+      if(userData.role=="admin")
       {
         navigate('/admin');
       }
-      else if(response.role=="patient")
+      else if(userData.role=="patient")
       {
         navigate('/patient');
       }
-      else if(response.role=="doctor")
+      else if(userData.role=="doctor")
       {
         navigate('/doctor');
       }

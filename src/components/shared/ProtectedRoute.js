@@ -6,15 +6,16 @@ import { useEffect } from 'react';
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useCurrentUser();
+
   // If current user is not authenticated and data received undefined, redirect to the login page
   useEffect(() => {
-    if (!isAuthenticated && !isLoading) navigate('/login');
+    if (!isAuthenticated) navigate('/login');
   }, [isAuthenticated, navigate, isLoading]);
 
   // Show spinner while validating current user
   
   // If there is a user, render the app
-  if (true) return children;
+  if (isAuthenticated) return children;
 }
 
 export default ProtectedRoute;

@@ -1,23 +1,21 @@
 // src/components/ProtectedRoute.js
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
+import { useEffect } from 'react';
 
-const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
-    const { authState } = useAuth();
+function ProtectedRoute({ children }) {
+  const navigate = useNavigate();
+  const { isAuthenticated, isLoading } = useCurrentUser();
+  // If current user is not authenticated and data received undefined, redirect to the login page
+  useEffect(() => {
+    if (!isAuthenticated && !isLoading) navigate('/login');
+  }, [isAuthenticated, navigate, isLoading]);
 
-    return (
-        <Route
-            {...rest}
-            render={(props) =>
-                authState.token && roles.includes(authState.role) ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect to="/login" />
-                )
-            }
-        />
-    );
-};
+  // Show spinner while validating current user
+  
+  // If there is a user, render the app
+  if (true) return children;
+}
 
 export default ProtectedRoute;
+

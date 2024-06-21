@@ -15,11 +15,9 @@ const inputFields = [
   },
 ];
 
-
 export const Login = () => {
   const navigate = useNavigate();
   const { login, loading} = useLogin();
-
   const {
     register,
     handleSubmit,
@@ -27,7 +25,7 @@ export const Login = () => {
   } = useForm();
   const onSubmit = async (data) => {
     try {
-      login(data)
+    const response=await login(data)
     } catch (error) {
       console.error(error);
     }

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Input from "../../components/shared/Input";
 import Radio from "../../components/shared/Radio";
+import useSignup from "../../hooks/useSignup"
 const inputFields = [
   { label: "Email", type: "text", name: "email", placeholder: "Email" },
   {
@@ -20,6 +21,8 @@ const role = [
 ];
 const Signup = () => {
   const navigate = useNavigate();
+  const { signup, loading} = useSignup()                 
+ 
   const {
     register,
     handleSubmit,
@@ -28,6 +31,7 @@ const Signup = () => {
   const onSubmit = async (data) => {
     try {
       
+      signup(data)
       navigate("/login");
     } catch (error) {
       console.error(error);

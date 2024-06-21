@@ -16,15 +16,15 @@ const useLogin = () => {
       setLoading(false);
       if(userData.role=="admin")
       {
-        navigate('/admin');
+        navigate('/admin/dashboard');
       }
       else if(userData.role=="patient")
       {
-        navigate('/patient');
+        navigate('/patient/dashboard');
       }
       else if(userData.role=="doctor")
       {
-        navigate('/doctor');
+        navigate('/doctor/dashboard');
       }
 
     } catch (err) {

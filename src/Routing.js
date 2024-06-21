@@ -6,9 +6,12 @@ import Signup from "./pages/Auth/Signup";
 import AdminLayout from "./Layout/AdminLayout";
 import DoctorLayout from "./Layout/DoctorLayout";
 import PatientLayout from "./Layout/PatientLayout";
-import Admin from "./pages/Admin/Admin";
-import Doctor from "./pages/Doctor/Doctor";
-import Patient from "./pages/Patient/Patient";
+import DoctorDashboard from "./pages/Doctor/DoctorDashboard"
+import DoctorSetting from "./pages/Doctor/DoctorSetting" 
+import PatientDashboard from "./pages/Patient/PatientDashboard"
+import PatientSetting from "./pages/Patient/PatientSetting"
+import AdminDashboard from "./pages/Admin/AdminDashboard"
+import AdminSetting from "./pages/Admin/AdminSetting"
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 
 const Routing = () => {
@@ -24,7 +27,8 @@ const Routing = () => {
             </ProtectedRoute>
           }
         >
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/settings" element={<AdminSetting/>} />
         </Route>
         <Route
           element={
@@ -33,7 +37,9 @@ const Routing = () => {
             </ProtectedRoute>
           }
         >
-          <Route path="/patient" element={<Patient />} />
+          <Route path="/patient/dashboard" element={<PatientDashboard />} />
+          <Route path="/patient/settings" element={<PatientSetting/>} />
+
         </Route>
         <Route
           element={
@@ -42,7 +48,8 @@ const Routing = () => {
             </ProtectedRoute>
           }
         >
-          <Route path="/doctor" element={<Doctor />} />
+          <Route path="/doctor/dashboard" element={< DoctorDashboard/>} />
+          <Route path="/doctor/settings" element={<DoctorSetting/>} />
         </Route>
       </Routes>
     </BrowserRouter>

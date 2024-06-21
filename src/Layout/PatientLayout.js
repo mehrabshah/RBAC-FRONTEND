@@ -8,7 +8,7 @@ const PatientLayout = ({ children }) => {
         <nav>
           <ul>
             <li><Link to="/patient/dashboard">Dashboard</Link></li>
-            <li><Link to="/patient/records">Records</Link></li>
+            <li><Link to="/patient/settings">Settings</Link></li>
           </ul>
         </nav>
       </aside>

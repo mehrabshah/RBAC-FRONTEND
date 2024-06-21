@@ -8,7 +8,7 @@ const DoctorLayout = ({ children }) => {
         <nav>
           <ul>
             <li><Link to="/doctor/dashboard">Dashboard</Link></li>
-            <li><Link to="/doctor/schedule">Schedule</Link></li>
+            <li><Link to="/doctor/settings">Settings</Link></li>
           </ul>
         </nav>
       </aside>

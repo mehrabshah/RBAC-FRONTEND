@@ -9,3 +9,12 @@ export const signUpUser = async (data) => {
     throw err.response ? err.response.data : 'Server error';
   }
 };
+
+export const loginUser = async (data) => {
+  try {
+    const response = await apiClient.post('/auth/login', data);
+    return response.data;
+  } catch (err) {
+    throw err.response ? err.response.data : 'Server error';
+  }
+};

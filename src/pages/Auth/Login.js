@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import Input from "../../components/shared/Input";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useLogin from "../../hooks/useLogin"
+
 const inputFields = [
   { label: "Email", type: "text", name: "email", placeholder: "Email" },
   {
@@ -16,6 +18,7 @@ const inputFields = [
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { login, loading} = useLogin();
 
   const {
     register,
@@ -24,8 +27,7 @@ export const Login = () => {
   } = useForm();
   const onSubmit = async (data) => {
     try {
-      
-
+      login(data)
     } catch (error) {
       console.error(error);
     }

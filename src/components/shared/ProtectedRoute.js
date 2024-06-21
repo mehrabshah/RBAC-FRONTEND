@@ -10,7 +10,7 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
         <Route
             {...rest}
             render={(props) =>
-                authState && roles.includes(authState.user.role) ? (
+                authState.token && roles.includes(authState.role) ? (
                     <Component {...props} />
                 ) : (
                     <Redirect to="/login" />

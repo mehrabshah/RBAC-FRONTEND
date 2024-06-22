@@ -23,9 +23,12 @@ const authApiClient = axios.create({
 authApiClient.interceptors.request.use(
   (config) => {
     // Get the token from local storage
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    const user = JSON.parse(localStorage.getItem('User'));
+     console.log("token piyara",user.token)
+
+
+    if (user.token) {
+      config.headers.Authorization = `Bearer ${user.token}`;
     }
     return config;
   },

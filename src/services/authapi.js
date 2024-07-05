@@ -18,3 +18,13 @@ export const loginUser = async (data) => {
     throw err.response ? err.response.data : 'Server error';
   }
 };
+
+
+export const forgetPasswordApi = async (data) => {
+  try {
+    const response = await apiClient.post('/auth/forget-password', data);
+    return response.data;
+  } catch (err) {
+    throw err.response ? err.response.data : 'Server error';
+  }
+};

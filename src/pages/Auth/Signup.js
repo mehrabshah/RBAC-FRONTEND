@@ -38,7 +38,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-[100vw] h-[100vh] flex  justify-center items-center bg-[#F5F6FA]">
+    <div className="w-[100%] h-[100vh] flex  justify-center items-center bg-[#F5F6FA]">
       <div className=" card bg-white px-2 py-6 lg:w-1/3 md:w-1/2 w-full">
         <h1 className="text-center font-bold text-2xl">Sign Up</h1>
         <div className="card-body p-4">
@@ -71,7 +71,7 @@ const Signup = () => {
           <span>
             Already Have an Account ?
             <Link className="text-red-500 cursor-pointer" to="/login">
-              Log in
+              Login
             </Link>
           </span>
         </div>

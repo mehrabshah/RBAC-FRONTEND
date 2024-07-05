@@ -13,6 +13,7 @@ import PatientSetting from "./pages/Patient/PatientSetting"
 import AdminDashboard from "./pages/Admin/AdminDashboard"
 import AdminSetting from "./pages/Admin/AdminSetting"
 import ProtectedRoute from "./components/shared/ProtectedRoute";
+import { ForgetPassword } from "./pages/Auth/ForgetPassword";
 
 const Routing = () => {
   return (
@@ -20,6 +21,7 @@ const Routing = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgetpassword" element={<ForgetPassword/>}/>
         <Route
           element={
             <ProtectedRoute>
